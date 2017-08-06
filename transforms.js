@@ -44,8 +44,6 @@ function objectToResources(folders, baseUrl='/', parentId='__workspace_1__') {
         metaSortKey: i,
       })
 
-      console.log('part', part)
-
       resources.push(...objectToResources(
         part,
         baseUrl,

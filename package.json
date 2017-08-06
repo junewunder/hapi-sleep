@@ -1,6 +1,6 @@
 {
   "name": "hapi-sleep",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Hapi converter to Insomnia format for all routes",
   "main": "index.js",
   "scripts": {
