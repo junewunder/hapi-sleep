@@ -6,6 +6,25 @@ This is a plugin for [hapi](hapijs.com) to generate an [insomnia](insomnia.rest)
 
 hapi sleep currently takes all the routes on your server given a baseurl, and makes folders and routes that correspond to your route structure.  Currently hapi-sleep does not know about route parameters (`/api/v1/user/{id}`).
 
+# Usage
+
+```bash
+npm install hapi-sleep --save
+
+# start your server
+
+curl localhost:3000/insomnia
+```
+
+```javascript
+server.register({
+  register: require('hapi-sleep'),
+  options: {
+    baseUrl: '/api/v1',
+    name: 'Example Project'
+  }
+}, () => { /* ... */ })
+```
 # Roadmap
 
  - Make more settings
