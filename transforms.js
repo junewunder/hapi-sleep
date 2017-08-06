@@ -62,7 +62,7 @@ function objectToResources(folders, baseUrl='/', parentId='__workspace_1__') {
       resources.push({
         _id, parentId, name,
         _type: 'request_group',
-        metaSortKey: i,
+        metaSortKey: name.charCodeAt(0),
       })
 
       resources.push(...objectToResources(
@@ -86,10 +86,11 @@ function routeToResource(route, baseUrl, metaSortKey, name, parentId) {
     }
 
   return {
-    _id, metaSortKey, name, parentId,
+    _id, name, parentId, //metaSortKey,
     _type: 'request',
     method: route.method,
     url: `{{api}}${path}`,
+    metaSortKey: name.charCodeAt(0),
   }
 }
 
