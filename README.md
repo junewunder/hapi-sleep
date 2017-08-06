@@ -24,6 +24,8 @@ server.register({
 }, () => { /* ... */ })
 ```
 
+**warning** hapi-sleep reserves the endpoint name `_index` for a route that also has subroutes. i.e. `/users/` and `/users/create`. The `/users/` endpoint would be in a folder called `users` in a route called `_index`.
+
 ![import export insomnia](https://github.com/jaywunder/hapi-sleep/blob/master/imgs/importexport.png)
 
 # Roadmap

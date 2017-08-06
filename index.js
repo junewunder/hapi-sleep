@@ -1,6 +1,6 @@
 const pkg = require('./package.json')
 const util = require('util')
-const transforms = require('./transforms')
+const transforms = require('./src/transforms')
 const fs = require('fs')
 const path = require('path')
 
