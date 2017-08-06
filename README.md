@@ -2,8 +2,6 @@
 
 This is a plugin for [hapi](hapijs.com) to generate an [insomnia](insomnia.rest) workspace at start time.  This plugin exposes an endpoint `/insomnia` that returns an insomnia import/export JSON string.  This plugin is meant to be used by importing from a link in insomnia.  
 
-![import export insomnia](https://github.com/jaywunder/hapi-sleep/blob/master/imgs/importexport.png)
-
 hapi sleep currently takes all the routes on your server given a baseurl, and makes folders and routes that correspond to your route structure.  Currently hapi-sleep does not know about route parameters (`/api/v1/user/{id}`).
 
 # Usage
@@ -25,6 +23,9 @@ server.register({
   }
 }, () => { /* ... */ })
 ```
+
+![import export insomnia](https://github.com/jaywunder/hapi-sleep/blob/master/imgs/importexport.png)
+
 # Roadmap
 
  - Make more settings
