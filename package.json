@@ -1,0 +1,23 @@
+{
+  "name": "hapi-sleep",
+  "version": "0.0.1",
+  "description": "Hapi converter to Insomnia format for all routes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo nope"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaywunder/hapi-sleep.git"
+  },
+  "keywords": [
+    "hapi",
+    "insomnia"
+  ],
+  "author": "Jacob Wunder",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaywunder/hapi-sleep/issues"
+  },
+  "homepage": "https://github.com/jaywunder/hapi-sleep#readme"
+}
