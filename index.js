@@ -50,12 +50,13 @@ exports.register = function (server, options, next) {
 
   server.route({
     method: 'GET',
-    path: '/insomnia',
+    path: options.path || '/insomnia',
     config: { auth: false },
     handler(request, reply) { reply(rootExport) }
   })
 
-  console.log(`Import insomia config from ${server.info.uri}/insomnia`);
+  if (options.log)
+    console.log(`Import insomia config from ${server.info.uri}/insomnia`);
 
   next()
 }
