@@ -55,7 +55,7 @@ module.exports = function(server, options) {
 
       if (isRoute(part)) {
 
-        resources.push(routeToResource(part, i, name, parentId))
+        resources.push(routeToResource(part, name, parentId))
 
       } else {
 
@@ -66,17 +66,14 @@ module.exports = function(server, options) {
           metaSortKey: name.charCodeAt(0),
         })
 
-        resources.push(...objectToResources(
-          part,
-          _id
-        ))
+        resources.push(...objectToResources(part, _id))
       }
     }
 
     return resources
   }
 
-  function routeToResource(route, metaSortKey, name, parentId) {
+  function routeToResource(route, name, parentId) {
     const _id = `__request_${++routeId}__`
     const path = route.path.replace(options.baseUrl, '')
 
