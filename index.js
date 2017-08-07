@@ -1,6 +1,5 @@
 const pkg = require('./package.json')
 const util = require('util')
-const transforms = require('./src/transforms')
 const fs = require('fs')
 const path = require('path')
 
@@ -23,11 +22,12 @@ const rootExport = {
  * }
  */
 exports.register = function (server, options, next) {
+  const transforms = require('./src/transforms')(server, options)
   // console.log(util.inspect(server.table(), false, 3))
   const [{ info, labels, table }] = server.table()
 
   const routes = table.filter(elem => elem.path.startsWith(options.baseUrl))
-  const folders = transforms.routesToObject(routes, options.baseUrl)
+  const folders = transforms.routesToObject(routes)
 
   rootExport.resources[0].name = options.name
 
@@ -36,15 +36,12 @@ exports.register = function (server, options, next) {
     _type: 'environment',
     parentId: '__workspace_1__',
     name: options.name,
-    data: {
+    data: Object.assign({
       api: `${server.info.uri}${options.baseUrl}`
-    }
+    }, options.environment)
   })
 
-  rootExport.resources.push(...transforms.objectToResources(
-    folders,
-    baseUrl = options.baseUrl
-  ))
+  rootExport.resources.push(...transforms.objectToResources(folders))
 
   const exportPath = path.join(process.cwd(), 'export.json')
   if (options.fileOutput) fs.writeFileSync(exportPath, JSON.stringify(rootExport), err => {
